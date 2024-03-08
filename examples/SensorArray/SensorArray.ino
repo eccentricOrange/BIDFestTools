@@ -25,5 +25,8 @@ void loop() {
     printPIRMotionDetected();  // Print the PIR sensor value to the serial monitor
     printUltrasoundDistance();  // Print the ultrasound sensor value to the serial monitor
     printSoilMoistureSensorValue();  // Print the soil moisture sensor value to the serial monitor
+
+    Serial.println(" ");  // Print a blank to separate the readings
+
     delay(1000);  // Wait for a second
 }
