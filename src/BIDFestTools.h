@@ -3,28 +3,46 @@
 
 #include <Arduino.h>
 
-void initializeLED();
-void blinkLED(int duration);
-void blinkLED(int duration, int times);
+class BIDFestTools {
+   private:
+    uint8_t ULTRASOUND_TRIGGER_PIN = 12;
+    uint8_t ULTRASOUND_ECHO_PIN = 13;
 
-void initializeUltrasound(uint8_t triggerPin, uint8_t echoPin);
-float getUltrasoundDistance();
-void printUltrasoundDistance();
+    uint8_t GAS_SENSOR_PIN = A0;
 
-void initializeGasSensor(uint8_t analogPin);
-int getGasSensorValue();
-void printGasSensorValue();
+    uint8_t SOIL_MOISTURE_SENSOR_PIN = A1;
 
-void initializeSoilMoistureSensor(uint8_t analogPin);
-int getSoilMoistureSensorValue();
-void printSoilMoistureSensorValue();
+    uint8_t PIR_SENSOR_PIN = 2;
 
-void initializePIRSensor(uint8_t digitalPin);
-bool isPIRMotionDetected();
-void printPIRMotionDetected();
+    uint8_t IR_SENSOR_PIN = 3;
 
-void initializeIRSensor(uint8_t digitalPin);
-bool isIRObjectDetected();
-void printIRObjectDetected();
+   public:
+    BIDFestTools() {};
+    ~BIDFestTools() {};
 
-#endif // BIDFestTools_h
+    void initializeLED();
+    void blinkLED(int duration);
+    void blinkLED(int duration, int times);
+
+    void initializeUltrasound(uint8_t triggerPin, uint8_t echoPin);
+    float getUltrasoundDistance();
+    void printUltrasoundDistance();
+
+    void initializeGasSensor(uint8_t analogPin);
+    int getGasSensorValue();
+    void printGasSensorValue();
+
+    void initializeSoilMoistureSensor(uint8_t analogPin);
+    int getSoilMoistureSensorValue();
+    void printSoilMoistureSensorValue();
+
+    void initializePIRSensor(uint8_t digitalPin);
+    bool isPIRMotionDetected();
+    void printPIRMotionDetected();
+
+    void initializeIRSensor(uint8_t digitalPin);
+    bool isIRObjectDetected();
+    void printIRObjectDetected();
+};
+
+#endif  // BIDFestTools_h
