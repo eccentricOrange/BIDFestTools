@@ -2,16 +2,21 @@
 
 #include <Arduino.h>
 
-// LED functions
+uint8_t ULTRASOUND_TRIGGER_PIN = 12;
+uint8_t ULTRASOUND_ECHO_PIN = 13;
+uint8_t GAS_SENSOR_PIN = A0;
+uint8_t SOIL_MOISTURE_SENSOR_PIN = A1;
+uint8_t PIR_SENSOR_PIN = 2;
+uint8_t IR_SENSOR_PIN = 3;
 
 /// @brief Initializes the LED pin
-void BIDFestTools::initializeLED() {
+void initializeLED() {
     pinMode(LED_BUILTIN, OUTPUT);
 }
 
 /// @brief Turns the LED on and then off after provided duration
 /// @param duration Duration for which the LED should be on
-void BIDFestTools::blinkLED(int duration) {
+void blinkLED(int duration) {
     digitalWrite(LED_BUILTIN, HIGH);
     delay(duration);
     digitalWrite(LED_BUILTIN, LOW);
@@ -21,7 +26,7 @@ void BIDFestTools::blinkLED(int duration) {
 /// @brief Blinks the LED on and off for the provided number of times, each time for the provided duration
 /// @param duration Duration for which the LED should be on
 /// @param times Number of times the LED should blink (one cycle is on and off)
-void BIDFestTools::blinkLED(int duration, int times) {
+void blinkLED(int duration, int times) {
     for (int i = 0; i < times; i++) {
         blinkLED(duration);
     }
@@ -30,7 +35,7 @@ void BIDFestTools::blinkLED(int duration, int times) {
 /// @brief Initializes the ultrasound sensor
 /// @param triggerPin Digital pin to which the trigger pin of the sensor is connected
 /// @param echoPin Digital pin to which the echo pin of the sensor is connected
-void BIDFestTools::initializeUltrasound(uint8_t triggerPin, uint8_t echoPin) {
+void initializeUltrasound(uint8_t triggerPin, uint8_t echoPin) {
     ULTRASOUND_TRIGGER_PIN = triggerPin;
     ULTRASOUND_ECHO_PIN = echoPin;
 
@@ -39,7 +44,7 @@ void BIDFestTools::initializeUltrasound(uint8_t triggerPin, uint8_t echoPin) {
 }
 
 /// @brief Gives the distance measured by the ultrasound sensor in centimeters (4-200 cm)
-float BIDFestTools::getUltrasoundDistance() {
+float getUltrasoundDistance() {
     // Clear the trigger pin
     digitalWrite(ULTRASOUND_TRIGGER_PIN, LOW);
     delayMicroseconds(2);
@@ -57,7 +62,7 @@ float BIDFestTools::getUltrasoundDistance() {
 }
 
 /// @brief Prints the distance measured by the ultrasound sensor in centimeters (4-200 cm) to the Serial Monitor
-void BIDFestTools::printUltrasoundDistance() {
+void printUltrasoundDistance() {
     Serial.print("Distance: ");
     Serial.print(getUltrasoundDistance());
     Serial.println(" cm");
@@ -65,17 +70,17 @@ void BIDFestTools::printUltrasoundDistance() {
 
 /// @brief Initializes the gas sensor
 /// @param pin Analog pin to which the sensor is connected
-void BIDFestTools::initializeGasSensor(uint8_t pin) {
+void initializeGasSensor(uint8_t pin) {
     GAS_SENSOR_PIN = pin;
 }
 
 /// @brief Gives the value of the gas sensor as a percentage (0-100)
-int BIDFestTools::getGasSensorValue() {
+int getGasSensorValue() {
     return map(analogRead(GAS_SENSOR_PIN), 0, 1023, 0, 100);
 }
 
 /// @brief Prints the value of the gas sensor as a percentage (0-100) to the Serial Monitor
-void BIDFestTools::printGasSensorValue() {
+void printGasSensorValue() {
     Serial.print("Gas: ");
     Serial.print(getGasSensorValue());
     Serial.println("%");
@@ -83,17 +88,17 @@ void BIDFestTools::printGasSensorValue() {
 
 /// @brief Initializes the soil moisture sensor
 /// @param pin Analog pin to which the sensor is connected
-void BIDFestTools::initializeSoilMoistureSensor(uint8_t pin) {
+void initializeSoilMoistureSensor(uint8_t pin) {
     SOIL_MOISTURE_SENSOR_PIN = pin;
 }
 
 /// @brief Gives the value of the soil moisture sensor as a percentage (0-100)
-int BIDFestTools::getSoilMoistureSensorValue() {
+int getSoilMoistureSensorValue() {
     return map(analogRead(SOIL_MOISTURE_SENSOR_PIN), 0, 1023, 100, 0);
 }
 
 /// @brief Prints the value of the soil moisture sensor as a percentage (0-100) to the Serial Monitor
-void BIDFestTools::printSoilMoistureSensorValue() {
+void printSoilMoistureSensorValue() {
     Serial.print("Soil Moisture: ");
     Serial.print(getSoilMoistureSensorValue());
     Serial.println("%");
@@ -101,34 +106,34 @@ void BIDFestTools::printSoilMoistureSensorValue() {
 
 /// @brief Initializes the PIR sensor
 /// @param pin Digital pin to which the sensor is connected
-void BIDFestTools::initializePIRSensor(uint8_t pin) {
+void initializePIRSensor(uint8_t pin) {
     PIR_SENSOR_PIN = pin;
     pinMode(PIR_SENSOR_PIN, INPUT);
 }
 
 /// @brief Checks if the PIR sensor has detected any motion. Returns `true` if motion is detected, `false` otherwise
-bool BIDFestTools::isPIRMotionDetected() {
+bool isPIRMotionDetected() {
     return digitalRead(PIR_SENSOR_PIN);
 }
 
 /// @brief Prints if the PIR sensor has detected any motion to the Serial Monitor
-void BIDFestTools::printPIRMotionDetected() {
+void printPIRMotionDetected() {
     Serial.println(isPIRMotionDetected() ? "Motion Detected!" : "No Motion");
 }
 
 /// @brief Initializes the IR sensor
 /// @param pin Digital pin to which the sensor is connected
-void BIDFestTools::initializeIRSensor(uint8_t pin) {
+void initializeIRSensor(uint8_t pin) {
     IR_SENSOR_PIN = pin;
     pinMode(IR_SENSOR_PIN, INPUT);
 }
 
 /// @brief Checks if the IR sensor has detected any object. Returns `true` if object is detected, `false` otherwise
-bool BIDFestTools::isIRObjectDetected() {
+bool isIRObjectDetected() {
     return digitalRead(IR_SENSOR_PIN);
 }
 
 /// @brief Prints if the IR sensor has detected any object to the Serial Monitor
-void BIDFestTools::printIRObjectDetected() {
+void printIRObjectDetected() {
     Serial.println(isIRObjectDetected() ? "Object Detected!" : "No Object");
 }
