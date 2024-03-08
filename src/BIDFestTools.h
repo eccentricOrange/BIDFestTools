@@ -27,4 +27,19 @@ void initializeIRSensor(uint8_t digitalPin);
 bool isIRObjectDetected();
 void printIRObjectDetected();
 
+void initializeDHTSensor(uint8_t digitalPin);
+float getDHTTemperature();
+float getDHTHumidity();
+void printDHTTemperature();
+void printDHTHumidity();
+void printDHTData();
+
+void initializeLDR(uint8_t analogPin);
+int getLDRValue();  
+void printLDRValue();
+
+void initializeTemperatureSensor(uint8_t analogPin);
+float getTemperature();
+void printTemperature();
+
 #endif  // BIDFestTools_h

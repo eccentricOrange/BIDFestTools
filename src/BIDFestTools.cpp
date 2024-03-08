@@ -1,6 +1,7 @@
 #include "BIDFestTools.h"
 
 #include <Arduino.h>
+#include <DHT.h>
 
 uint8_t ULTRASOUND_TRIGGER_PIN = 12;
 uint8_t ULTRASOUND_ECHO_PIN = 13;
@@ -8,6 +9,11 @@ uint8_t GAS_SENSOR_PIN = A0;
 uint8_t SOIL_MOISTURE_SENSOR_PIN = A1;
 uint8_t PIR_SENSOR_PIN = 2;
 uint8_t IR_SENSOR_PIN = 3;
+uint8_t DHT_SENSOR_PIN = 4;
+uint8_t LDR_PIN = A2;
+uint8_t TEMPERATURE_SENSOR_PIN = A3;
+
+DHT dht(DHT_SENSOR_PIN, DHT11);
 
 /// @brief Initializes the LED pin
 void initializeLED() {
@@ -136,4 +142,77 @@ bool isIRObjectDetected() {
 /// @brief Prints if the IR sensor has detected any object to the Serial Monitor
 void printIRObjectDetected() {
     Serial.println(isIRObjectDetected() ? "Object Detected!" : "No Object");
+}
+
+/// @brief Initializes the DHT sensor
+/// @param pin Digital pin to which the sensor is connected
+void initializeDHTSensor(uint8_t pin) {
+    DHT_SENSOR_PIN = pin;
+    dht.begin();
+}
+
+/// @brief Gives the temperature measured by the DHT sensor in Celsius
+float getTemperature() {
+    return dht.readTemperature();
+}
+
+/// @brief Gives the humidity measured by the DHT sensor in percentage
+float getHumidity() {
+    return dht.readHumidity();
+}
+
+/// @brief Prints the temperature measured by the DHT sensor in Celsius to the Serial Monitor
+void printTemperature() {
+    Serial.print("Temperature: ");
+    Serial.print(getTemperature());
+    Serial.println(" °C");
+}
+
+/// @brief Prints the humidity measured by the DHT sensor in percentage to the Serial Monitor
+void printHumidity() {
+    Serial.print("Humidity: ");
+    Serial.print(getHumidity());
+    Serial.println("%");
+}
+
+/// @brief Prints the temperature and humidity measured by the DHT sensor to the Serial Monitor
+void printDHTData() {
+    printTemperature();
+    printHumidity();
+}
+
+/// @brief Initializes the LDR sensor
+/// @param pin Analog pin to which the sensor is connected
+void initializeLDR(uint8_t pin) {
+    LDR_PIN = pin;
+}
+
+/// @brief Gives the value of the LDR sensor as a percentage (0-100)
+int getLDRValue() {
+    return map(analogRead(LDR_PIN), 0, 1023, 0, 100);
+}
+
+/// @brief Prints the value of the LDR sensor as a percentage (0-100) to the Serial Monitor
+void printLDRValue() {
+    Serial.print("LDR: ");
+    Serial.print(getLDRValue());
+    Serial.println("%");
+}
+
+/// @brief Initializes the temperature sensor
+/// @param pin Analog pin to which the sensor is connected
+void initializeTemperatureSensor(uint8_t pin) {
+    TEMPERATURE_SENSOR_PIN = pin;
+}
+
+/// @brief Gives the temperature measured by the temperature sensor in Celsius
+float getTemperatureSensorValue() {
+    return map(analogRead(TEMPERATURE_SENSOR_PIN), 0, 1023, 0, 100);
+}
+
+/// @brief Prints the temperature measured by the temperature sensor in Celsius to the Serial Monitor
+void printTemperatureSensorValue() {
+    Serial.print("Temperature: ");
+    Serial.print(getTemperatureSensorValue());
+    Serial.println(" °C");
 }
