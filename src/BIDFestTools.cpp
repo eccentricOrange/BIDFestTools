@@ -127,7 +127,7 @@ bool isPIRMotionDetected() {
 }
 
 /// @brief Prints if the PIR sensor has detected any motion to the Serial Monitor
-void printPIRMotion() {
+void printPIRMotionDetected() {
     Serial.println(isPIRMotionDetected() ? "Motion Detected!" : "No Motion");
 }
 
@@ -147,6 +147,6 @@ bool isIRObjectDetected() {
 }
 
 /// @brief Prints if the IR sensor has detected any object to the Serial Monitor
-void printIRObject() {
+void printIRObjectDetected() {
     Serial.println(isIRObjectDetected() ? "Object Detected!" : "No Object");
 }
