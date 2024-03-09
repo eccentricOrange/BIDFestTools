@@ -13,7 +13,7 @@
 
 // The setup function runs once when you press reset or power the board
 void setup() {
-  initializeDHTSensor(4);  // Initialize the atmospheric sensor on digital pin 4
+  initializeDHTSensor(2);  // Initialize the atmospheric sensor on digital pin 2
   Serial.begin(9600);  // Initialize the Serial Monitor
 }
 

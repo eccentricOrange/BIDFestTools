@@ -7,7 +7,7 @@ A soil moisture sensor uses a pair of electrodes to measure the volumetric water
 - Jumper Wires
 
 # Circuit
-Connect the soil moisture sensor to the Arduino as shown in the diagram. Here is a table of the connections for your reference:
+Connect the soil moisture sensor to the Arduino as shown in the diagram. This diagram doesn't show it, but you need to connect the module to the sensor separately. Here is a table of the connections for your reference:
 
 | Soil Moisture Sensor Module | Arduino |
 | --- | --- |
@@ -20,7 +20,7 @@ Connect the soil moisture sensor to the Arduino as shown in the diagram. Here is
 | VCC | VCC |
 | GND | GND |
 
-![diagram](diagram.png)
+![diagram](diagram.jpeg)
 
 You're free to use any analog pin for the A0 pin. Just make sure to update the pin number in the code, as shown below in the `void setup()` function.
 

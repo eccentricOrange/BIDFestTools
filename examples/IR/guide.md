@@ -12,7 +12,7 @@ Connect the IR sensor to the Arduino as shown in the diagram. Here is a table of
 | --- | --- |
 | VCC | 5V |
 | GND | GND |
-| OUT | Digital Pin 2 |
+| OUT | Digital Pin 9 |
 
 ![diagram](diagram.png)
 

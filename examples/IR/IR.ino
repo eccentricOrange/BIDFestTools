@@ -13,7 +13,7 @@
 
 // The setup function runs once when you press reset or power the board
 void setup() {
-  initializeIRSensor(2);  // Initialize the IR sensor on digital pin 2
+  initializeIRSensor(9);  // Initialize the IR sensor on digital pin 9
   Serial.begin(9600);  // Initialize the Serial Monitor
 }
 

@@ -13,7 +13,7 @@
 
 // The setup function runs once when you press reset or power the board
 void setup() {
-  initializeUltrasound(12, 13);  // Initialize the ultrasound sensor on digital pins 12 and 13
+  initializeUltrasound(11, 12);  // Initialize the ultrasound sensor on digital pins 12 and 13
                                  // 12 is the trigger pin and 13 is the echo pin
   Serial.begin(9600);  // Initialize the Serial Monitor
 }

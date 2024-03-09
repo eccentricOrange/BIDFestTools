@@ -14,7 +14,7 @@
 
 // The setup function runs once when you press reset or power the board
 void setup() {
-    initializeTemperatureSensor(4);  // Initialize the temperature sensor on digital pin 4
+    initializeTemperatureSensor(A0);  // Initialize the temperature sensor on digital pin A0
     Serial.begin(9600);              // Initialize the Serial Monitor
 }
 

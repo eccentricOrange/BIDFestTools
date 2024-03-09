@@ -12,7 +12,7 @@ Connect the PIR sensor to the Arduino as shown in the diagram. Here is a table o
 | --- | --- |
 | VCC | 5V |
 | GND | GND |
-| OUT | Digital Pin 2 |
+| OUT | Digital Pin 8 |
 
 ![diagram](diagram.png)
 

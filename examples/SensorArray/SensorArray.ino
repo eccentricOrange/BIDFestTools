@@ -14,7 +14,7 @@
 // The setup function runs once when you press reset or power the board
 void setup() {
     initializePIRSensor(2);            // Initialize the PIR sensor on digital pin 2
-    initializeUltrasound(3, 4);  // Initialize the ultrasound sensor on digital pins 3 and 4
+    initializeUltrasound(4, 3);  // Initialize the ultrasound sensor on digital pins 3 and 4
     initializeSoilMoistureSensor(A0);  // Initialize the soil moisture sensor on analog pin A0
 
     Serial.begin(9600);  // Initialize the Serial Monitor

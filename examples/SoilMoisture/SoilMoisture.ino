@@ -13,7 +13,7 @@
 
 // The setup function runs once when you press reset or power the board
 void setup() {
-    initializeSoilMoistureSensor(A1);  // Initialize the soil moisture sensor
+    initializeSoilMoistureSensor(A0);  // Initialize the soil moisture sensor
     Serial.begin(9600);  // Initialize the Serial Monitor
 }
 

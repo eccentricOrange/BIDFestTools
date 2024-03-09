@@ -13,7 +13,7 @@
 
 // The setup function runs once when you press reset or power the board
 void setup() {
-  initializePIRSensor(2);  // Initialize the PIR sensor on digital pin 2
+  initializePIRSensor(8);  // Initialize the PIR sensor on digital pin 8
   Serial.begin(9600);  // Initialize the Serial Monitor
 }
 
