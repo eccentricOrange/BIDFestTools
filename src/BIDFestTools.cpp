@@ -151,35 +151,35 @@ void initializeDHTSensor(uint8_t pin) {
 }
 
 /// @brief Gives the temperature measured by the DHT sensor in Celsius
-float getTemperature() {
+float getDHTTemperature() {
     dht.read(DHT_SENSOR_PIN);
     return dht.temperature;
 }
 
 /// @brief Gives the humidity measured by the DHT sensor in percentage
-float getHumidity() {
+float getDHTHumidity() {
     dht.read(DHT_SENSOR_PIN);
     return dht.humidity;
 }
 
 /// @brief Prints the temperature measured by the DHT sensor in Celsius to the Serial Monitor
-void printTemperature() {
+void printDHTTemperature() {
     Serial.print("Temperature: ");
-    Serial.print(getTemperature());
+    Serial.print(getDHTTemperature());
     Serial.println(" °C");
 }
 
 /// @brief Prints the humidity measured by the DHT sensor in percentage to the Serial Monitor
-void printHumidity() {
+void printDHTHumidity() {
     Serial.print("Humidity: ");
-    Serial.print(getHumidity());
+    Serial.print(getDHTHumidity());
     Serial.println("%");
 }
 
 /// @brief Prints the temperature and humidity measured by the DHT sensor to the Serial Monitor
 void printDHTData() {
-    printTemperature();
-    printHumidity();
+    printDHTTemperature();
+    printDHTHumidity();
 }
 
 /// @brief Initializes the LDR sensor
@@ -207,8 +207,8 @@ void initializeTemperatureSensor(uint8_t pin) {
 }
 
 /// @brief Gives the temperature measured by the temperature sensor in Celsius
-float getTemperatureSensorValue() {
-    int ADCValue;
+float getTemperature() {
+    uint16_t ADCValue;
     float temperature;
     ADCValue = analogRead(TEMPERATURE_SENSOR_PIN);	
     temperature = (ADCValue * 4.88);	
@@ -217,8 +217,8 @@ float getTemperatureSensorValue() {
 }
 
 /// @brief Prints the temperature measured by the temperature sensor in Celsius to the Serial Monitor
-void printTemperatureSensorValue() {
+void printTemperature() {
     Serial.print("Temperature: ");
-    Serial.print(getTemperatureSensorValue());
+    Serial.print(getTemperature());
     Serial.println(" °C");
 }
