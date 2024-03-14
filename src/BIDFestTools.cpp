@@ -208,7 +208,12 @@ void initializeTemperatureSensor(uint8_t pin) {
 
 /// @brief Gives the temperature measured by the temperature sensor in Celsius
 float getTemperatureSensorValue() {
-    return map(analogRead(TEMPERATURE_SENSOR_PIN), 0, 1023, 0, 100);
+    int temp_adc_val;
+    float temp_val;
+    temp_adc_val = analogRead(TEMPERATURE_SENSOR_PIN);	
+    temp_val = (temp_adc_val * 4.88);	
+    temp_val = (temp_val/10);	
+    return temp_val;
 }
 
 /// @brief Prints the temperature measured by the temperature sensor in Celsius to the Serial Monitor
