@@ -21,7 +21,7 @@ Connect the gas sensor to the Arduino as shown in the diagram. Here is a table o
 | GND | GND |
 | OUT | Analog Pin A0 |
 
-![diagram](diagram.png)
+![diagram](diagram.jpeg)
 
 You're free to use any analog pin for the OUT pin, from A0 to A5. Just make sure to update the pin number in the code, as shown below in the `void setup()` function.
 

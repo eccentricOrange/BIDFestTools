@@ -14,7 +14,7 @@ Connect the PIR sensor to the Arduino as shown in the diagram. Here is a table o
 | GND | GND |
 | OUT | Digital Pin 8 |
 
-![diagram](diagram.png)
+![diagram](diagram.jpg)
 
 You're free to use any digital pin for the OUT pin, from 2 to 12. Just make sure to update the pin number in the code, as shown below in the `void setup()` function.
 
