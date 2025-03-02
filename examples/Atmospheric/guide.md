@@ -24,7 +24,7 @@ void setup() {
 }
 ```
 
-Make sure to install and include the DHT library in your Arduino IDE. You can find the library at: https://github.com/adidax/dht11.git
+Make sure to install and include the DHT library in your Arduino IDE. You can find the library at: https://github.com/adafruit/DHT-sensor-library.git
 
 ### Code to include the library
 ```cpp

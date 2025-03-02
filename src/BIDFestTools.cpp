@@ -1,7 +1,7 @@
 #include "BIDFestTools.h"
 
 #include <Arduino.h>
-#include <dht11.h>
+#include <DHT.h>
 
 uint8_t ULTRASOUND_TRIGGER_PIN = 12;
 uint8_t ULTRASOUND_ECHO_PIN = 13;
@@ -13,7 +13,7 @@ uint8_t DHT_SENSOR_PIN = 4;
 uint8_t LDR_PIN = A2;
 uint8_t TEMPERATURE_SENSOR_PIN = A3;
 
-dht11 dht;
+DHT dht(DHT_SENSOR_PIN, DHT11);
 
 /// @brief Initializes the LED pin
 void initializeLED() {
@@ -152,14 +152,12 @@ void initializeDHTSensor(uint8_t pin) {
 
 /// @brief Gives the temperature measured by the DHT sensor in Celsius
 float getDHTTemperature() {
-    dht.read(DHT_SENSOR_PIN);
-    return dht.temperature;
+    return dht.readTemperature();
 }
 
 /// @brief Gives the humidity measured by the DHT sensor in percentage
 float getDHTHumidity() {
-    dht.read(DHT_SENSOR_PIN);
-    return dht.humidity;
+    return dht.readHumidity();
 }
 
 /// @brief Prints the temperature measured by the DHT sensor in Celsius to the Serial Monitor
