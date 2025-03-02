@@ -98,10 +98,6 @@ void loop() {
 }
 ```
 
-## Documentation
-
-For detailed documentation on each function, please refer to the [GitHub repository](https://github.com/eccentricOrange/BIDFestTools).
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
