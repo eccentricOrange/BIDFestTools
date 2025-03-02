@@ -16,7 +16,7 @@ BIDFestTools is a library designed to simplify the use of various sensors with A
 
 ## About BIDFest
 
-BITFest is an annual make-a-thon organized by [SBE-VIT](https://l.instagram.com/?u=https%3A%2F%2Flinktr.ee%2Fsbe_vit%3Ffbclid%3DPAZXh0bgNhZW0CMTEAAaZDwFQglXaiycAwfrXDpdG-lx8s5e736sTN9smUKHJxNoRV1EjLIQ5_W2M_aem_taoLK7g2rho6EMt_BqAE-Q&e=AT2qwXhKYcP7bboeW67pHl6vKVvwQ4BoJokBjOe8U98JLxHgpAiDBLOquQdJ4rVMwTSMbwnvUNwaxu4pA1MmDbG0BzdRAG8zGwlSdv4s7B3ugppM2yZpDOI) at the [Vellore Institute of Technologu](https://vit.ac.in/).
+BITFest is an annual make-a-thon organized by [SBE-VIT](https://l.instagram.com/?u=https%3A%2F%2Flinktr.ee%2Fsbe_vit%3Ffbclid%3DPAZXh0bgNhZW0CMTEAAaZDwFQglXaiycAwfrXDpdG-lx8s5e736sTN9smUKHJxNoRV1EjLIQ5_W2M_aem_taoLK7g2rho6EMt_BqAE-Q&e=AT2qwXhKYcP7bboeW67pHl6vKVvwQ4BoJokBjOe8U98JLxHgpAiDBLOquQdJ4rVMwTSMbwnvUNwaxu4pA1MmDbG0BzdRAG8zGwlSdv4s7B3ugppM2yZpDOI) at the [Vellore Institute of Technology](https://vit.ac.in/).
 
 BIDFest focuses on **Biomimicry**. Students are given the opportunity to engineer innovative solutions for today's challenges by presenting a 3D model or prototype of their ideas. The problem statements cover a wide range of fields, from architecture to healthcare. This is a chance to apply nature-inspired solutions to unconventional problems.
 
