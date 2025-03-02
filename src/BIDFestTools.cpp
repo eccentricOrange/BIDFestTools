@@ -1,6 +1,7 @@
 #include "BIDFestTools.h"
 
 #include <Arduino.h>
+#include <Adafruit_Sensor.h>
 #include <DHT.h>
 
 uint8_t ULTRASOUND_TRIGGER_PIN = 12;
