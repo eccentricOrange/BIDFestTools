@@ -137,7 +137,7 @@ void initializeIRSensor(uint8_t pin) {
 
 /// @brief Checks if the IR sensor has detected any object. Returns `true` if object is detected, `false` otherwise
 bool isIRObjectDetected() {
-    return digitalRead(IR_SENSOR_PIN);
+    return !digitalRead(IR_SENSOR_PIN);
 }
 
 /// @brief Prints if the IR sensor has detected any object to the Serial Monitor
