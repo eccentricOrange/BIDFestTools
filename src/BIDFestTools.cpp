@@ -4,6 +4,8 @@
 #include <Adafruit_Sensor.h>
 #include <DHT.h>
 
+DHT* dht;
+
 uint8_t ULTRASOUND_TRIGGER_PIN = 12;
 uint8_t ULTRASOUND_ECHO_PIN = 13;
 uint8_t GAS_SENSOR_PIN = A0;
@@ -13,8 +15,6 @@ uint8_t IR_SENSOR_PIN = 3;
 uint8_t DHT_SENSOR_PIN = 4;
 uint8_t LDR_PIN = A2;
 uint8_t TEMPERATURE_SENSOR_PIN = A3;
-
-DHT dht(DHT_SENSOR_PIN, DHT11);
 
 /// @brief Initializes the LED pin
 void initializeLED() {
@@ -149,16 +149,17 @@ void printIRObjectDetected() {
 /// @param pin Digital pin to which the sensor is connected
 void initializeDHTSensor(uint8_t pin) {
     DHT_SENSOR_PIN = pin;
+    dht = new DHT(DHT_SENSOR_PIN, DHT11);
 }
 
 /// @brief Gives the temperature measured by the DHT sensor in Celsius
 float getDHTTemperature() {
-    return dht.readTemperature();
+    return dht->readTemperature();
 }
 
 /// @brief Gives the humidity measured by the DHT sensor in percentage
 float getDHTHumidity() {
-    return dht.readHumidity();
+    return dht->readHumidity();
 }
 
 /// @brief Prints the temperature measured by the DHT sensor in Celsius to the Serial Monitor
