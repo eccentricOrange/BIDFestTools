@@ -3,8 +3,10 @@
 #include <Arduino.h>
 #include <Adafruit_Sensor.h>
 #include <DHT.h>
+#include<Servo.h>
 
 DHT* dht;
+Servo servo;
 
 uint8_t ULTRASOUND_TRIGGER_PIN = 12;
 uint8_t ULTRASOUND_ECHO_PIN = 13;
@@ -15,6 +17,7 @@ uint8_t IR_SENSOR_PIN = 3;
 uint8_t DHT_SENSOR_PIN = 4;
 uint8_t LDR_PIN = A2;
 uint8_t TEMPERATURE_SENSOR_PIN = A3;
+int SERVO_PIN = 9;
 
 /// @brief Initializes the LED pin
 void initializeLED() {
@@ -150,6 +153,7 @@ void printIRObjectDetected() {
 void initializeDHTSensor(uint8_t pin) {
     DHT_SENSOR_PIN = pin;
     dht = new DHT(DHT_SENSOR_PIN, DHT11);
+    dht->begin();
 }
 
 /// @brief Gives the temperature measured by the DHT sensor in Celsius
@@ -221,4 +225,43 @@ void printTemperature() {
     Serial.print("Temperature: ");
     Serial.print(getTemperature());
     Serial.println(" °C");
+}
+
+/// @brief  Initializes the servo motor
+/// @param pin Digital pin to which the servo motor is connected
+void initializeServoMotor(int pin) {
+    SERVO_PIN = pin;
+    servo.attach(SERVO_PIN);
+}
+
+/// @brief Sweeps the servo motor from 0 in the provided range and returns to the original position
+/// @param range Angle till which the servo motor should be rotated (0-180)
+void sweepServo(int range = 180) {
+    if (range < 0) {
+        range = 0;
+    } else if (range > 180) {
+        range = 180;
+    }
+
+    for(int angle = 0; angle < range; angle++) {
+        servo.write(angle);
+        delay(15);
+    }
+
+    for(int angle = range; angle > 0; angle--) {
+        servo.write(angle);
+        delay(15);
+    }
+}
+
+/// @brief Rotates the servo motor to the provided angle
+/// @param angle Angle to which the servo motor should be moved (0-180)
+void rotateServo(int angle = 90) {
+    if (angle < 0) {
+        angle = 0;
+    } else if (angle > 180) {
+        angle = 180;
+    }
+
+    servo.write(angle);
 }
