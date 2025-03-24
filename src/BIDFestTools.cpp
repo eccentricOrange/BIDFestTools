@@ -235,20 +235,36 @@ void initializeServoMotor(int pin) {
 }
 
 /// @brief Sweeps the servo motor from 0 in the provided range and returns to the original position
-/// @param range Angle till which the servo motor should be rotated (0-180)
-void sweepServo(int range = 180) {
-    if (range < 0) {
-        range = 0;
-    } else if (range > 180) {
-        range = 180;
+/// @param startAngle Angle from which the servo motor should start rotating (0-180). Default is 0
+/// @param stopAngle Angle till which the servo motor should be rotated (0-180). Default is 180
+void sweepServo(int startAngle = 0, int stopAngle = 180) {
+    // If the values have been inputted in reverse, invert it.
+    if (stopAngle < startAngle) {
+        int temp = stopAngle;
+        stopAngle = startAngle;
+        startAngle = temp;
     }
 
-    for(int angle = 0; angle < range; angle++) {
+    if (startAngle < 0) {
+        startAngle = 0;
+    } 
+    else if (startAngle > 180) {
+        startAngle = 180;
+    }
+
+    if (stopAngle < 0) {
+        stopAngle = 0;
+    } 
+    else if (stopAngle > 180) {
+        stopAngle = 180;
+    }
+
+    for(int angle = startAngle; angle < range; angle++) {
         servo.write(angle);
         delay(15);
     }
 
-    for(int angle = range; angle > 0; angle--) {
+    for(int angle = range; angle > startAngle; angle--) {
         servo.write(angle);
         delay(15);
     }
