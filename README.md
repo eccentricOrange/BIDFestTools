@@ -13,7 +13,6 @@ BIDFestTools is a library designed to simplify the use of various sensors with A
 - **DHT Sensor**: Measure temperature and humidity using the DHT11 sensor.
 - **LDR Sensor**: Measure light intensity using an LDR sensor.
 - **Temperature Sensor**: Measure temperature using the LM35 sensor.
-- **Micro Servo Motor**: Makes precise rotation with required angles.
 
 ## About BIDFest
 
