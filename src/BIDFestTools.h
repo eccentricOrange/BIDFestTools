@@ -42,8 +42,4 @@ void initializeTemperatureSensor(uint8_t analogPin);
 float getTemperature();
 void printTemperature();
 
-void initializeServo(uint_8 digitalPin);
-void sweepServo(int angle);
-void rotateServo(int angle);
-
 #endif  // BIDFestTools_h
