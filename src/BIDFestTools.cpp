@@ -150,6 +150,7 @@ void printIRObjectDetected() {
 void initializeDHTSensor(uint8_t pin) {
     DHT_SENSOR_PIN = pin;
     dht = new DHT(DHT_SENSOR_PIN, DHT11);
+    dht->begin();
 }
 
 /// @brief Gives the temperature measured by the DHT sensor in Celsius

@@ -16,7 +16,7 @@ BIDFestTools is a library designed to simplify the use of various sensors with A
 
 ## About BIDFest
 
-BITFest is an annual make-a-thon organized by [SBE-VIT](https://linktr.ee/sbe_vit) at the [Vellore Institute of Technology](https://vit.ac.in/).
+BIDFest is an annual make-a-thon organized by [*SBE-VIT*](https://linktr.ee/sbe_vit) at the [*Vellore Institute of Technology*](https://vit.ac.in/).
 
 BIDFest focuses on **Biomimicry**. Students are given the opportunity to engineer innovative solutions for today's challenges by presenting a 3D model or prototype of their ideas. The problem statements cover a wide range of fields, from architecture to healthcare. This is a chance to apply nature-inspired solutions to unconventional problems.
 
